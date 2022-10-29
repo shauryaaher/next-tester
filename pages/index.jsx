@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import { Suspense } from "react";
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3000/api/hello");
+  const res = await fetch("http://next-tester-weld.vercel.app/api/hello");
   const data = await res.text();
   return {
     props: {
