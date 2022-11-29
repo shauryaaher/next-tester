@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { Suspense } from "react";
 
@@ -25,6 +26,9 @@ export default function Home(props) {
         <Suspense fallback={<h2>Loading...</h2>}>
           <p>{props.text}</p>
         </Suspense>
+        <Link href="https://github.com/shauryaaher/next-tester">
+          GitHub repo
+        </Link>
       </main>
     </div>
   );
