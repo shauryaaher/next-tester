@@ -4,8 +4,12 @@ import styles from "../styles/Home.module.css";
 import { Suspense } from "react";
 
 export async function getServerSideProps() {
-  const res = await fetch("http://next-tester-weld.vercel.app/api/hello");
-  const data = await res.text();
+  const path =
+    "https://firestore.googleapis.com/v1/projects/next-js-tester/databases/(default)/documents/oo/ll";
+  const req = await fetch(path)
+  .then((res) => res.json())
+  .catch((error) => console.error(error));
+  const data = await Object.values(req.fields.f).toString();
   return {
     props: {
       text: data,
@@ -23,10 +27,13 @@ export default function Home(props) {
       <main className={styles.main}>
         <h1 className={styles.title}>Hello world!</h1>
         <h2>Welcome to this Next.js tester project.</h2>
-        <Suspense fallback={<h2>Loading...</h2>}>
-          <p>{props.text}</p>
+        <Suspense fallback={<span>Loading...</span>}>
+          {props.text}
         </Suspense>
-        <Link href="https://github.com/shauryaaher/next-tester">
+        <Link
+          href="https://github.com/shauryaaher/next-tester"
+          style={{ color: "royalblue" }}
+        >
           GitHub repo
         </Link>
       </main>
