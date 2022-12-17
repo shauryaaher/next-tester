@@ -34,7 +34,7 @@ export default function Home(props) {
         <Suspense fallback={<span>Loading...</span>}>{props.text}</Suspense>
         <Link
           href="https://github.com/shauryaaher/next-tester"
-          style={{ color: "royalblue" }}
+          style={{ color: "cyan" }}
         >
           GitHub repo
         </Link>
